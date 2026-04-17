@@ -1,5 +1,7 @@
 # 八字命理分析工具 (Bazi Master)
 
+[![Version](https://img.shields.io/badge/version-v1.0.0-blue)]()
+
 基于《子平真诠》理论，支持四柱排盘、大运流年、真太阳时校正的八字命理分析工具。
 
 ## 功能特性
