@@ -54,7 +54,5 @@ def get_all_nayin(year_stem, year_branch, month_stem, month_branch, day_stem, da
     }
 
 if __name__ == "__main__":
-    # 测试：1995-01-11 男 甲戌年 丁丑月 壬寅日 丁未时
-    result = get_all_nayin("甲","戌","丁","丑","壬","寅","丁","未")
-    print("纳音:", result)
-    # 期望: 年柱=山头火, 月柱=涧下水, 日柱=金箔金, 时柱=天河水
+    # 用法示例
+    print(get_all_nayin("甲","戌","丁","丑","壬","寅","丁","未"))

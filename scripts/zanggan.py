@@ -42,8 +42,6 @@ def get_all_zanggan_str(branch):
     return "".join(get_all_zanggan(branch))
 
 if __name__ == "__main__":
-    # 测试
-    for zhi in "子丑寅卯辰巳午未申酉戌亥":
-        info = get_zanggan(zhi)
-        all_z = get_all_zanggan_str(zhi)
-        print(f"  {zhi}: 本气{info['本气']} 中气{info['中气']} 余气{info['余气']} → {all_z}")
+    # 用法示例
+    print(get_zanggan("子"))
+    print(get_all_zanggan_str("寅"))

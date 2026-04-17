@@ -64,11 +64,6 @@ def get_wang(stem):
     return stem + DIZHI_LIST[ww_pos]
 
 if __name__ == "__main__":
-    # 测试：壬寅日
-    print("壬在寅:", get_changsheng("壬","寅"))
-    print("壬在子:", get_changsheng("壬","子"))  # 帝旺/羊刃
-    print("甲在戌:", get_changsheng("甲","戌"))  # 养
-
-    print("\n壬完整十二长生:")
-    for z, s in get_changsheng_all("壬").items():
-        print(f"  壬在{z}: {s}")
+    # 用法示例
+    print(get_changsheng("壬", "寅"))
+    print(get_changsheng_all("壬"))
