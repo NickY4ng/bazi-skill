@@ -10,11 +10,13 @@
 节气获取：黄历API（支持精确节气时间查询）
 """
 
+import os
 import requests
 from datetime import datetime, timedelta
 
-BAIDU_AK = "YOUR_BAIDU_AK"
-HUANGLI_KEY = "YOUR_HUANGLI_KEY"
+# 【开源配置】请设置环境变量：HUANGLI_KEY（必选）、BAIDU_AK（可选，真太阳时校正用）
+HUANGLI_KEY = os.environ.get("HUANGLI_KEY", "YOUR_HUANGLI_KEY")
+BAIDU_AK    = os.environ.get("BAIDU_AK", "YOUR_BAIDU_AK")
 HUANGLI_URL = "https://api.t1qq.com/api/tool/day/time"
 
 TIANGAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]

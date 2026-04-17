@@ -24,10 +24,6 @@ BAIDU_AK    = os.environ.get("BAIDU_AK", "YOUR_BAIDU_AK")
     location: 地址字符串
 """
 
-import requests
-from datetime import datetime, timedelta
-
-BAIDU_AK = "YOUR_BAIDU_AK"
 
 # 十二时辰对应的Hour GanZhi（北京时间23:00开始为子时）
 # 时柱表：23-1子时，1-3丑时，3-5寅时，5-7卯时...
