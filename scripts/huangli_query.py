@@ -204,26 +204,36 @@ def query(date_str, birth_time_str=None, location=None, lunar=False):
         "raw": data,
     }
 
-    # 真太阳时校正
-    if birth_time_str and location:
+    # 真太阳时校正（可选）
+    # 条件：有出生时间 + 有地点 + 有有效的BAIDU_AK
+    if birth_time_str and location and BAIDU_AK not in ("", "YOUR_BAIDU_AK"):
         lng, lat = geocode(location)
-        adjust_min = true_solar_adjustment(lng, date_str)
-        h, m = map(int, birth_time_str.split(":"))
-        total_min = h * 60 + m
-        adjusted_min = (total_min + int(adjust_min)) % 1440
-        adj_h = adjusted_min // 60
-        adj_m = adjusted_min % 60
+        if lng is not None and lat is not None:
+            adjust_min = true_solar_adjustment(lng, date_str)
+            h, m = map(int, birth_time_str.split(":"))
+            total_min = h * 60 + m
+            adjusted_min = (total_min + int(adjust_min)) % 1440
+            adj_h = adjusted_min // 60
+            adj_m = adjusted_min % 60
 
-        day_stem = result["dayGanZhi"][0]
-        correct_hour_gz = get_hour_ganzhi(day_stem, adjusted_min)
+            day_stem = result["dayGanZhi"][0]
+            correct_hour_gz = get_hour_ganzhi(day_stem, adjusted_min)
 
-        result["adjustedTime"] = f"{adj_h:02d}:{adj_m:02d}"
-        result["hourGanZhi"] = correct_hour_gz
-        result["hourNayin"] = na.get("hour", "")
-        result["longitude"] = lng
-        result["latitude"] = lat
-        result["adjustmentMinutes"] = adjust_min
-        result["location"] = location
+            result["adjustedTime"] = f"{adj_h:02d}:{adj_m:02d}"
+            result["hourGanZhi"] = correct_hour_gz
+            result["hourNayin"] = na.get("hour", "")
+            result["longitude"] = lng
+            result["latitude"] = lat
+            result["adjustmentMinutes"] = adjust_min
+            result["location"] = location
+        else:
+            # geocode失败，跳过校正，用API原始时柱
+            result["location"] = location
+            result["adjustedTime"] = None
+    else:
+        # 无地点或无BAIDU_AK，跳过校正，用API原始时柱
+        if location:
+            result["location"] = location
 
     return result
 
