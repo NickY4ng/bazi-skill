@@ -29,8 +29,7 @@ bazi-skill/
 │   ├── zanggan.py        # 藏干
 │   ├── changsheng.py     # 长生十二宫
 │   ├── shensha.py        # 神煞
-│   ├── kongwang.py       # 空亡
-│   └── liuyue.py         # 流月
+│   └── kongwang.py       # 空亡
 └── references/
     └── 八字分析框架.md    # 参考文档
 ```
@@ -52,7 +51,7 @@ pip install requests python-lunardate
 
 ### 3. 配置 API 密钥
 
-本工具使用两个付费 API：
+本工具使用两个 API：
 
 **黄历 API**（必选）
 - 申请地址：https://api.t1qq.com/
@@ -62,7 +61,7 @@ pip install requests python-lunardate
 export HUANGLI_KEY="你的黄历API密钥"
 ```
 
-**百度地图 AK**（必选）
+**百度地图 AK**（可选，用于真太阳时校正。如不配置，将跳过校正直接使用北京时间）
 - 申请地址：https://lbsyun.baidu.com/
 - 创建应用后设置环境变量：
 
