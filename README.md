@@ -63,7 +63,7 @@ pip install requests python-lunardate
 export HUANGLI_KEY="你的黄历API密钥"
 ```
 
-**百度地图 AK**（可选，用于真太阳时校正。如不配置，将跳过校正直接使用北京时间）
+**百度地图 AK**（可选，用于真太阳时校正。如不配置，将跳过校正直接使用上海浦东时间）
 - 申请地址：https://lbsyun.baidu.com/
 - 创建应用后设置环境变量：
 
@@ -79,7 +79,7 @@ python3 -c "
 import sys
 sys.path.insert(0, '.')
 from huangli_query import query
-r = query('1995-01-11', '14:30', '北京')
+r = query('2003-06-15', '14:30', '上海浦东')
 print('四柱:', r['yearGanZhi'], r['monthGanZhi'], r['dayGanZhi'], r['hourGanZhi'])
 "
 ```
@@ -96,7 +96,7 @@ from huangli_query import query
 from dayun_api import calculate_dayun_full
 
 # 查询四柱
-r = query('1995-01-11', '14:30', '北京')
+r = query('2003-06-15', '14:30', '上海浦东')
 print(r['yearGanZhi'])      # 年柱
 print(r['monthGanZhi'])     # 月柱
 print(r['dayGanZhi'])       # 日柱
@@ -104,7 +104,7 @@ print(r['hourGanZhi'])      # 时柱（已真太阳时校正）
 
 # 计算大运
 dayun = calculate_dayun_full(
-    birth_date='1995-01-11',
+    birth_date='2003-06-15',
     year_gan='甲',
     month_gan='丁',
     month_zhi='丑',
@@ -124,7 +124,7 @@ print(dayun['qiyun_start_date']) # 起运日期
 ```
 
 示例：
-- 阳历：`1995-01-11 14:30 北京`
+- 阳历：`2003-06-15 14:30 上海浦东`
 - 阴历：需说明，工具会自动转换
 
 ### 输出内容
