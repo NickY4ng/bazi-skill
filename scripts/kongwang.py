@@ -72,13 +72,6 @@ def get_xun_name(day_stem, day_branch):
     return xun_first_stem + xun_last_branch + "旬"
 
 if __name__ == "__main__":
-    # 测试：壬寅日
-    day_stem, day_branch = "壬","寅"
-    xun = get_xun_name(day_stem, day_branch)
-    kong = get_dayun(day_stem, day_branch)
-    print(f"壬寅属{xun}，空亡地支:{kong}")
-
-    # 测试各柱
-    stems = {"年柱":"甲","月柱":"丁","日柱":"壬","时柱":"戊"}
-    branches = {"年柱":"戌","月柱":"丑","日柱":"寅","时柱":"申"}
-    print("空亡检查:", check_all_kongwang(stems, branches))
+    # 用法示例
+    print(get_dayun("壬", "寅"))
+    print(check_all_kongwang({"日柱":"壬"}, {"日柱":"寅"}))

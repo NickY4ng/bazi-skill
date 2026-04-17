@@ -153,14 +153,8 @@ def check_tianluo_wang(nayin_dict, branches_dict, gender):
     return results
 
 if __name__ == "__main__":
-    # 测试：甲戌年 丁丑月 壬寅日 戊申时
+    # 用法示例
     stems = {"年柱":"甲","月柱":"丁","日柱":"壬","时柱":"戊"}
     branches = {"年柱":"戌","月柱":"丑","日柱":"寅","时柱":"申"}
-    nayin = {"年柱":"山头火","月柱":"涧下水","日柱":"金箔金","时柱":"大驿土"}
-
-    print("天乙贵人:", check_tianyi(stems, branches))
-    print("文昌:", check_wenchang(stems, branches))
-    print("桃花:", check_taohua(branches))
-    print("驿马:", check_yima(branches))
-    print("羊刃:", check_yangren(stems, branches))
-    print("天罗地网:", check_tianluo_wang(nayin, branches, "男"))
+    print(check_tianyi(stems, branches))
+    print(check_taohua(branches))

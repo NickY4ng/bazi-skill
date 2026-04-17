@@ -86,9 +86,6 @@ def adjust_birth_time(birth_time_str, lng):
 
 
 if __name__ == "__main__":
-    # 测试
-    addrs = ["北京市东城区", "浙江省宁波市海曙区", "黑龙江省佳木斯市汤原县"]
-    for addr in addrs:
-        lng, lat = geocode(addr)
-        adj = true_solar_adjustment(lng)
-        print(f"{addr}: 经度={lng:.2f} 校正={adj:+.0f}分钟")
+    # 用法示例
+    print(geocode("北京"))
+    print(adjust_birth_time("14:30", 116.4))
